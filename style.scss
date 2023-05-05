@@ -9,11 +9,35 @@ $row-count:5;
   @return $base + ($index - 1) * $size;
 }
 
+@mixin squar($size){
+  width: $size;
+  height: $size;
+}
+
+@mixin squad($size) {
+  @include squar($size);
+
+  border-radius:50%;
+}
+
+
+%style-setting-globall{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+
+.title {
+  @extend %style-setting-globall;
+  padding: 0;
+}
 
 .game {
   position: relative;
   width: 3 * $cell-size;
   border: 3px solid #000;
+  @extend %style-setting-globall;
 
   &__field {
     display: flex;
@@ -21,9 +45,8 @@ $row-count:5;
   }
 
   &__cell {
+    @include squar($cell-size);
     box-sizing: border-box;
-    height: $cell-size;
-    width: $cell-size;
     border: 1px dashed #000;
   }
 
@@ -32,9 +55,7 @@ $row-count:5;
     position: absolute;
     left: $base-shift;
     top: $base-shift;
-    height: $player-size;
-    width:  $player-size;
-    border-radius: 50%;
+    @include squad($player-size);
     background-color: #000;
 
     @for $index from 1 through $row-count{
