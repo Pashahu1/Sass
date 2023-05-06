@@ -1,3 +1,9 @@
-@use './blocks/title.scss';
-@use './blocks/game.scss';
+@import './untils/mixins';
+@import './untils/functions';
+@import './untils/extends';
+@import './untils/variables';
+
+
+@import './blocks/title.scss';
+@import './blocks/game.scss';
 

@@ -1,7 +1,7 @@
-@use '../untils/mixins';
-@use '../untils/functions';
-@use '../untils/extends';
-@use '../untils/variables' as *;
+// @use '../untils/mixins';
+// @use '../untils/functions';
+// @use '../untils/extends';
+// @use '../untils/variables' as *;
 
 
 .game {
@@ -16,7 +16,7 @@
   }
 
   &__cell {
-    @include mixins.squar($cell-size);
+    @include squar($cell-size);
     box-sizing: border-box;
     border: 1px dashed #000;
   }
@@ -27,18 +27,18 @@
     left: $base-shift;
     top: $base-shift;
 
-    @include mixins.squad($player-size);
+    @include squad($player-size);
     background-color: #000;
 
     @for $index from 1 through $row-count{
       &--row--#{$index} {
-        top: functions.getShift($base-shift, $cell-size ,$index)
+        top: getShift($base-shift, $cell-size ,$index)
       }
     }
 
     @for $index from 1 through $col-count{
       &--col--#{$index} {
-        left: functions.getShift($base-shift, $cell-size ,$index)
+        left: getShift($base-shift, $cell-size ,$index)
         }
       }
 

@@ -1,6 +1,14 @@
-@use '../untils/extends';
+// @use '../untils/extends';
 
 .title {
   @extend %style-setting-globall;
   padding: 0;
+
+  @media (min-width:300px){
+    background-color: yellow;
+  }
+
+  @media (min-width:500px){
+    background-color: red;
+  }
 }

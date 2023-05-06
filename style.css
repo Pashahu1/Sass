@@ -7,6 +7,16 @@
 .title {
   padding: 0;
 }
+@media (min-width: 300px) {
+  .title {
+    background-color: yellow;
+  }
+}
+@media (min-width: 500px) {
+  .title {
+    background-color: red;
+  }
+}
 
 .game {
   position: relative;
