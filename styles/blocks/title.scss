@@ -1,0 +1,6 @@
+@use '../untils/extends';
+
+.title {
+  @extend %style-setting-globall;
+  padding: 0;
+}

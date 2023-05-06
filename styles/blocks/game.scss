@@ -1,36 +1,8 @@
+@use '../untils/mixins';
+@use '../untils/functions';
+@use '../untils/extends';
+@use '../untils/variables' as *;
 
-$cell-size: 100px;
-$player-size: 0.8 * $cell-size;
-$base-shift:($cell-size - $player-size) /2;
-$col-count:3;
-$row-count:5;
-
-@function getShift($base, $size, $index) {
-  @return $base + ($index - 1) * $size;
-}
-
-@mixin squar($size){
-  width: $size;
-  height: $size;
-}
-
-@mixin squad($size) {
-  @include squar($size);
-  border-radius:50%;
-}
-
-
-%style-setting-globall{
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 23px;
-  font-weight: 600;
-}
-
-
-.title {
-  @extend %style-setting-globall;
-  padding: 0;
-}
 
 .game {
   position: relative;
@@ -44,7 +16,7 @@ $row-count:5;
   }
 
   &__cell {
-    @include squar($cell-size);
+    @include mixins.squar($cell-size);
     box-sizing: border-box;
     border: 1px dashed #000;
   }
@@ -55,18 +27,18 @@ $row-count:5;
     left: $base-shift;
     top: $base-shift;
 
-    @include squad($player-size);
+    @include mixins.squad($player-size);
     background-color: #000;
 
     @for $index from 1 through $row-count{
       &--row--#{$index} {
-        top: getShift($base-shift, $cell-size ,$index)
+        top: functions.getShift($base-shift, $cell-size ,$index)
       }
     }
 
     @for $index from 1 through $col-count{
       &--col--#{$index} {
-        left: $base-shift + ($index - 1) * $cell-size;
+        left: functions.getShift($base-shift, $cell-size ,$index)
         }
       }
 
@@ -83,4 +55,3 @@ $row-count:5;
     }
   }
 }
-

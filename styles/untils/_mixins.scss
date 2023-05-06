@@ -1,0 +1,9 @@
+@mixin squar($size){
+  width: $size;
+  height: $size;
+}
+
+@mixin squad($size) {
+  @include squar($size);
+  border-radius:50%;
+}
