@@ -16,7 +16,6 @@ $row-count:5;
 
 @mixin squad($size) {
   @include squar($size);
-
   border-radius:50%;
 }
 
@@ -55,6 +54,7 @@ $row-count:5;
     position: absolute;
     left: $base-shift;
     top: $base-shift;
+
     @include squad($player-size);
     background-color: #000;
 
@@ -73,8 +73,8 @@ $row-count:5;
       $colors:
         'red' #ff0,
         'yellow' #f00,
-        'green'#0f0,
-        'purple' #f0f;
+        'green'#0f0;
+        // 'purple' #f0f;
 
     @each $name, $color in $colors{
       &--color--#{$name} {
